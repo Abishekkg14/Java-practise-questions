@@ -1,0 +1,69 @@
+/*Problem Statement
+
+
+
+Vimal is a network engineer tasked with managing a large company's IP address allocations. To optimize the network, 
+he needs to determine the number of possible subnets based on a given IP address and subnet mask. 
+
+
+
+Vimal decides to write a program that calculates the number of subnets using a parameterized method named calculateSubnets, which takes the IP address and subnet mask as input.
+
+Input format :
+The first line of input consists of a String, representing the IP address (e.g., in the format A.B.C.D).
+
+The second line of input consists of a String, representing the subnet mask, which is in CIDR notation (e.g., /24)
+
+Output format :
+The output displays "Number of Subnets: " followed by an integer representing the number of subnets that can be created from the given subnet mask.
+
+*/
+
+Solution:-
+
+import java.util.*;
+
+class Subnet{
+
+    String ip_address;
+    String mask;
+
+    Subnet(){
+
+    }
+
+    Subnet(String ip_address, String mask){
+        this.ip_address = ip_address;
+        this.mask = mask;
+    }
+
+    public int subnetscalc(String ip_address, String mask){
+
+        int temp = Integer.parseInt(mask.substring(1));
+
+        int temp2 = 32-temp;
+
+        int cidr = (int) Math.pow(2,temp2);
+
+        return cidr;
+    }
+}
+
+class Main{
+
+    public static void main(String[] args){
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter the IP address: ");
+        String ip = input.nextLine();
+        System.out.println("Enter the mask: ");
+        String mask = input.nextLine();
+
+        Subnet s1 = new Subnet(ip,mask);
+
+        int result = s1.subnetscalc(ip,mask);
+
+        System.out.println("Result: "+result);
+    }
+}
