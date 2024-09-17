@@ -1,0 +1,79 @@
+/*Rubia wants to develop a program that calculates a person's age in days based on their age in years. Write a program that has two overloaded methods convertToDays() to handle integer and double value inputs and convert the ages to days to help Rubia. 
+
+
+
+The program should accept user input for age in years, perform the calculations by multiplying the integer age by 365 and multiplying the double value age by 365.25, and display both results as integers.
+
+Input format :
+The first line of input consists of an integer m, representing a person's age in years as a whole number.
+
+The second line consists of a double value n, representing a person's age in years as a decimal number.
+
+Output format :
+The first line of output displays "m years is approximately X days." where m is the integer age and X is its approximate equivalent in days as an integer.
+
+The second line displays "n years is approximately Y days." where n is the double value age and Y is its approximate equivalent in days as an integer.
+
+*/
+Sample test cases :
+Input 1 :
+30
+30.5
+Output 1 :
+30 years is approximately 10950 days.
+30.5 years is approximately 11140 days.
+Input 2 :
+1
+1.0
+Output 2 :
+1 years is approximately 365 days.
+1.0 years is approximately 365 days.
+Input 3 :
+100
+100.0
+Output 3 :
+100 years is approximately 36500 days.
+100.0 years is approximately 36525 days.
+
+
+Solution:-
+
+import java.util.*;
+class Convert{
+    
+    Convert(){
+        
+    }
+    
+    int convertToDays(int value){
+        int result = value*365;
+        return result;
+    }
+    
+    int convertToDays(double value){
+        double result = value*365.25;
+        int result2 = (int)result;
+        return result2;
+    }
+}
+
+class Main{
+    
+    public static void main(String[] args){
+        
+        Scanner input = new Scanner(System.in);
+        
+        int n1 = input.nextInt();
+        double n2 = input.nextDouble();
+        
+        Convert c1 = new Convert();
+        
+        int result1 = c1.convertToDays(n1);
+        System.out.printf("%d years is approximately %d days.",n1,result1);
+        
+        int result2 = c1.convertToDays(n2);
+        System.out.printf("\n%.1f years is approximately %d days.",n2,result2);
+        
+    }
+}
+
