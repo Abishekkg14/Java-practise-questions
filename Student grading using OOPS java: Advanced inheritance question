@@ -1,0 +1,137 @@
+/*Problem Statement
+Riya is a teacher who is passionate about assessing her students fairly. 
+She is developing a program to calculate the grades of her students based on their test scores. 
+Implement a program that models the grade calculation of a student. 
+
+Follow the class hierarchy and details provided below:
+Person Class:
+Create a class named Person with protected instance variables firstName, lastName, and idNumber.
+Create a constructor in the Person class that takes three parameters (firstName, lastName, and idNumber) and initializes the instance variables.
+Implement a method named printPerson in the Person class that prints the name and ID of the person.
+
+Student Class: Create a class named Student that extends the Person class.
+Add a private instance variable testScores, which is an array of integers representing the test scores of the student.
+Create a constructor in the Student class that takes four parameters (firstName, lastName, id, and testScores) and 
+calls the constructor of the superclass using the super keyword.
+Implement a method named calculate() in the Student class that calculates and returns the grade based on the average of the test scores.
+
+
+Main Class:
+In the Main class, use a Scanner to take input for the firstName, lastName, id, and the number of test scores (numScores).
+Take input for the test scores and create an object of the Student class using the provided input values.
+Invoke the printPerson method on the Student object to print the name and ID of the student.
+Invoke the calculate method on the Student object to calculate and print the grade.
+
+The grading scale is as follows:
+  Grading Scale
+
++--------+-------------------+
+| Letter | Average (a)       |
++--------+-------------------+
+| O      | 90 ≤ a ≤ 100      |
+| A      | 80 ≤ a < 90       |
+| E      | 70 ≤ a < 80       |
+| P      | 55 ≤ a < 70       |
+| D      | 40 ≤ a < 55       |
+| T      | a < 40            |
++--------+-------------------+
+
+Input format :
+The first line of input consists of a string representing the first name.
+The second line consists of a string representing the last name.
+The third line consists of an integer representing the id.
+The fourth line consists of the number of test scores.
+The fifth line consists of an integer array of test scores, separated by a single space.
+
+Output format :
+The output displays the name, ID and grade of the student in separate lines.
+
+Solution:-
+
+import java.util.*;
+
+class Person{
+    protected String firstName;
+    protected String lastName;
+    protected int id_number;
+
+    Person(String firstName, String lastName, int id_number){
+        
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.id_number = id_number;
+        
+    }
+    
+    void printperson(){
+        System.out.println("Name: "+firstName+" "+lastName);
+        System.out.println("ID: "+id_number);
+    }
+}
+
+class Student extends Person{
+    char grade;
+    private int[] scores;
+    
+    Student(String firstName,String lastName,int id_number,int[] scores){
+        
+        super(firstName,lastName,id_number);
+        
+        this.scores = scores;
+    }
+    
+    char calculate(){
+        int sum = 0;
+        
+        for(int i=0; i<scores.length; i++){
+            sum+=scores[i];
+        }
+        
+        int test_score = sum/scores.length;
+        
+        
+        if(test_score>=90 && test_score<=100){
+            grade = 'O';
+        }
+        else if(test_score>=80 && test_score<90){
+            grade = 'E';
+        }
+        else if(test_score>=70 && test_score<80){
+            grade = 'A';
+        }
+        else if(test_score>=55 && test_score<70){
+            grade = 'P';
+        }
+        else if(test_score>=40 && test_score<55){
+            grade = 'D';
+        }
+        else if(test_score<40){
+            grade = 'T';
+        }
+        return grade;
+    }
+}
+
+class Main{
+    
+    public static void main(String[] args){
+    
+        Scanner input = new Scanner(System.in);
+    
+        String fn = input.nextLine();
+        String ln = input.nextLine();
+        int id = input.nextInt();
+        int n = input.nextInt();
+        int[] scores = new int[n];
+    
+        for(int i=0; i<n; i++){
+            scores[i] = input.nextInt();
+        }
+        
+        Student s1 = new Student(fn,ln,id,scores);
+        
+        char grade = s1.calculate();
+        s1.printperson();
+        System.out.println("Grade: "+grade);
+    }   
+}
