@@ -1,0 +1,102 @@
+/*Problem Statement
+Elsa subscribes to a premium service with a base monthly cost, a service tax and an extra feature cost. 
+Assist her in writing an inheritance program that takes input for these values and calculates the total monthly cost. */
+
+Diagram:-
+
+|-------------------------------|
+|      Subscription             |
+|                               |
+|      double monthlycost;      | 
+|      double serviceTax;       |
+|     double extraFeaturecost;  |
+|-------------------------------|
+             ↓
+|-------------------------------|
+|    Premium Subscription       |
+|   void calculateMonthlycost() |
+|                               |
+|                               |
+|-------------------------------|
+
+/*Input format :
+The first line of input consists of a double value, representing the base monthly cost.
+
+The second line consists of a double value, representing the service tax.
+
+The third line consists of a double value, representing the extra feature cost.
+
+Output format :
+The output prints "Rs. X" where X is a double value, rounded off to two decimal places.
+Refer to the sample output for formatting specifications.*/
+
+Input 1 :
+10.0
+2.5
+5.0
+Output 1 :
+Rs. 17.50
+
+Input 2 :
+12.765
+34.98
+10.23
+Output 2 :
+Rs. 57.97
+
+Input 3 :
+98.56
+99.67
+94.56
+Output 3 :
+Rs. 292.79
+
+
+Solution:-
+
+import java.util.*;
+
+class Subscription{
+    double monthlycost;
+    double serviceTax;
+    double extraFeaturecost;
+    
+    Subscription(){
+        
+    }
+    
+    Subscription(double monthlycost, double serviceTax, double extraFeaturecost){
+        this.monthlycost = monthlycost;
+        this.serviceTax = serviceTax;
+        this.extraFeaturecost = extraFeaturecost;
+    }
+    
+}
+
+class PremiumSubscription extends Subscription{
+    
+    PremiumSubscription(double monthlycost,double serviceTax,double extraFeaturecost){
+        super(monthlycost,serviceTax,extraFeaturecost);
+    }
+    
+    void calculateMonthlyCost(){
+        double result = monthlycost+serviceTax+extraFeaturecost;
+        System.out.printf("Rs. %.2f",result);
+    }
+}
+
+class Main{
+    
+    public static void main(String[] args){
+        
+        Scanner input = new Scanner(System.in);
+        
+        double mc = input.nextDouble();
+        double st = input.nextDouble();
+        double efc = input.nextDouble();
+        
+        PremiumSubscription p1 = new PremiumSubscription(mc,st,efc);
+        
+        p1.calculateMonthlyCost();
+    }
+}
