@@ -1,0 +1,85 @@
+/*Problem Statement
+
+
+
+Hagrid needs a program capable of performing two calculations: square roots and cube roots. 
+
+When he inputs an integer value, the program calculates the square root and displays the result. 
+Likewise, if he enters a double, he anticipates the program to compute the cube root and display the outcome. 
+
+
+Create a program that enables Hagrid to input a number and then see the result of the respective root calculation. Use method overloading with the name calculateRoot() for this and also sqrt() and cbrt() functions from the Java library.
+
+Input format :
+The input consists of either an integer n or a double value d, representing the numerical value entered by Hagrid.
+
+Output format :
+If the input is an integer, the output displays the square root of n rounded to one decimal place.
+
+If the input is a double value, the output displays the cube root of d rounded to one decimal place.
+*/
+
+Input 1 :
+4
+Output 1 :
+2.0
+Input 2 :
+27.0
+Output 2 :
+3.0
+Input 3 :
+1000
+Output 3 :
+31.6
+Input 4 :
+1000.00
+Output 4 :
+10.0
+
+//.....................................................
+
+Solution:-
+
+import java.util.*;
+class Root{
+    
+    Root(){
+        
+    }
+    
+    double calculateRoot(int x){
+        double result = Math.sqrt(x);
+        return result;
+    }
+    
+    double calculateRoot(double x){
+        double result = Math.cbrt(x);
+        return result;
+    }
+}
+
+class Main{
+    
+    public static void main(String[] args){
+    
+    Scanner input = new Scanner(System.in);
+    
+    Root r1 = new Root();
+    
+    if(input.hasNextInt()){
+    
+    int n1 = input.nextInt();
+    
+    double result1 = r1.calculateRoot(n1);
+    
+    System.out.printf("%.1f",result1);}
+    else if(input.hasNextDouble()){
+    
+    double n2 = input.nextDouble();
+    
+    double result2 = r1.calculateRoot(n2);
+    
+    System.out.printf("%.1f",result2);
+    }
+    }
+}
