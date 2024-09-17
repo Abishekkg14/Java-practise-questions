@@ -1,0 +1,106 @@
+/*Problem Statement
+
+
+
+John wants to determine the travel distance his car can cover based on its speed and fuel capacity. 
+
+
+
+Write a program that reads the speed and fuel capacity, and calculates the travel distance using a Car class that extends a Vehicle class. The Vehicle class should contain speed and fuel capacity attributes, while the Car class should have a method calculateTravelDistance() to calculate the travel distance.
+
+Input format :
+The first line of input consists of a double value, representing the speed.
+
+The second line consists of a double value, representing the fuel capacity.
+
+Output format :
+The first line of output prints "Speed: X km/h" where X is a double value, representing the speed, rounded off to two decimal places.
+
+The second line prints "Fuel Capacity: Y liters" where Y is a double value, representing the fuel capacity, rounded off to two decimal places.
+
+The third line prints "Travel Distance: Z km" where Z is a double value, representing the total distance, rounded off to two decimal places.
+
+*/
+
+
+Sample test cases :
+Input 1 :
+10.0
+1.0
+Output 1 :
+Speed: 10.00 km/h
+Fuel Capacity: 1.00 liters
+Travel Distance: 10.00 km
+
+Input 2 :
+456.90
+12.54
+Output 2 :
+Speed: 456.90 km/h
+Fuel Capacity: 12.54 liters
+Travel Distance: 5729.53 km
+
+Input 3 :
+150.75
+9.8
+Output 3 :
+Speed: 150.75 km/h
+Fuel Capacity: 9.80 liters
+Travel Distance: 1477.35 km
+
+solution:-
+
+import java.util.*;
+
+class Vehicle{
+    double speed;
+    double fuel;
+    
+    Vehicle(){
+        
+    }
+    
+    Vehicle(double speed, double fuel){
+        this.speed = speed;
+        this.fuel = fuel;
+    }
+    
+}
+
+class Car extends Vehicle{
+    
+    Car(double speed,double fuel){
+        super(speed,fuel);
+    }
+    
+    void calculateTravelDistance(){
+        double distance = speed*fuel;
+        System.out.printf("\nTravel Distance: %.2f km",distance);
+    }
+    
+    void display(){
+        System.out.printf("Speed: %.2f km/h",speed);
+        System.out.printf("\nFuel Capacity: %.2f liters",fuel);
+    }
+    
+}
+
+
+class Main{
+    
+    public static void main(String[] args){
+        
+        Scanner input = new Scanner(System.in);
+        
+        double speed = input.nextDouble();
+        double fuel = input.nextDouble();
+        
+        
+        Car c1 = new Car(speed,fuel);
+        
+        c1.display();
+        c1.calculateTravelDistance();
+        
+    }
+    
+}
