@@ -1,0 +1,74 @@
+Problem Statement
+
+Teena's retail store has implemented a Loyalty Points System to reward customers based on their spending. The program includes two classes: Customer and PremiumCustomer.
+
+For regular customers: Loyalty points = amount spent / 10
+
+For premium customers: Loyalty points = 2 * (amount spent / 10)
+
+Calculate and display the loyal points received by the customers using an overridden method calculateLoyaltyPoints.
+
+Input format :
+The first line of input consists of an integer representing the amount spent by the customer.
+
+The second line consists of premium customer status (a string) - "yes" if the customer is a premium customer, "no" if they are not.
+
+Output format :
+The output displays the loyalty points earned based on the amount spent.
+
+Solution:-
+
+import java.util.*;
+
+class Customer{
+    
+    public int calculateLoyaltyPoints(int amount){
+        return (amount/10);
+    }
+    
+}
+
+class PremiumCustomer extends Customer{
+    
+    public int calculateLoyaltyPoints(int amount){
+        return 2*(amount/10);
+    }
+    
+}
+
+class Main{
+    
+    public static void main(String[] args){
+        
+        Scanner input = new Scanner(System.in);
+        
+        int amount = input.nextInt();
+        
+        input.nextLine();
+        
+        String status = input.nextLine().toLowerCase();
+        
+        if(status.equals("yes")){
+            
+            Customer p1 = new PremiumCustomer();
+            
+            int result = p1.calculateLoyaltyPoints(amount);
+            
+            System.out.println(result);
+            
+        }
+        else if(status.equals("no")){
+            
+            Customer c1 = new Customer();
+            
+            int result2 = c1.calculateLoyaltyPoints(amount);
+            
+            System.out.println(result2);
+        }
+    }
+}
+
+
+
+
+
