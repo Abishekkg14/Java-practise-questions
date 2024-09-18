@@ -1,0 +1,106 @@
+Problem Statement
+A new airline, Boeing747, needs to calculate its total revenue based on ticket cost and seat availability. 
+Implement a program using three classes: Airline, Indigo, and Boeing747, where Airline has a cost attribute, 
+Indigo extends Airline with seatAvailability, and Boeing747 extends Indigo with a method calculateTotalRevenue to calculate the total revenue.
+
+Note: Total revenue = ticket cost * seat availability
+
+Input format :
+The first line of input consists of a double value, representing the flight's ticket cost.
+
+The second line consists of an integer, representing seat availability.
+
+Output format :
+The output prints the ticket cost, seat availability and the total revenue.
+
+Input 1 :
+1000.0
+100
+Output 1 :
+Ticket Cost: Rs. 1000.0
+Seat Availability: 100 seats
+Total Revenue: Rs. 100000.0
+
+Input 2 :
+22000.0
+300
+Output 2 :
+Ticket Cost: Rs. 22000.0
+Seat Availability: 300 seats
+Total Revenue: Rs. 6600000.0
+
+Input 3 :
+50000.00
+30
+Output 3 :
+Ticket Cost: Rs. 50000.0
+Seat Availability: 30 seats
+Total Revenue: Rs. 1500000.0
+
+Solution:-
+
+import java.util.*;
+
+
+class Airline{
+    double cost;
+    
+    Airline(){
+        
+    }
+    
+    Airline(double cost){
+        this.cost = cost;
+    }
+    
+    
+}
+
+class Indigo extends Airline{
+    int sa;
+    
+    Indigo(){
+        
+    }
+    
+    Indigo(int sa, double cost){
+        this.sa = sa;
+        this.cost = cost;
+    }
+    
+}
+
+class Boeing747 extends Indigo{
+    double revenue;
+    
+    Boeing747(int sa,double cost){
+        super(sa,cost);
+        this.revenue = revenue;
+    }
+    
+    public void calculateTotalRevenue(){
+        revenue = cost*sa;
+        System.out.printf("Ticket Cost: Rs. %.1f",cost);
+        System.out.println("\nSeat Availability: "+sa+" seats");
+        System.out.printf("Total Revenue: Rs. %.1f",revenue);
+    }
+    
+}
+
+class Main{
+    
+    public static void main(String[] args){
+        
+        Scanner input = new Scanner(System.in);
+        
+        double cost = input.nextDouble();
+        
+        int sa = input.nextInt();
+        
+        Boeing747 b1 = new Boeing747(sa,cost);
+        
+        b1.calculateTotalRevenue();
+
+    }
+}
+
