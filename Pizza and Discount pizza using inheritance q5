@@ -1,55 +1,41 @@
 /*Problem Statement
 
+Rithish is developing a straightforward pizza ordering system. To achieve this, 
+he needs a Pizza class with a constructor for the base price and topping cost, 
+along with a calculatePrice method overriding. He also wants a DiscountedPizza class that inherits from Pizza,
+applying a 10% discount for more than three toppings.
 
+The program prompts the user for inputs, creates instances of both classes, 
+calculates regular and discounted prices, and displays them formatted appropriately.
 
-Rithish is developing a straightforward pizza ordering system. To achieve this, he needs a Pizza class with a constructor for the base price and topping cost, along with a calculatePrice method overriding. He also wants a DiscountedPizza class that inherits from Pizza, applying a 10% discount for more than three toppings.
-
-
-
-The program prompts the user for inputs, creates instances of both classes, calculates regular and discounted prices, and displays them formatted appropriately.
-
-
-
+Sample test cases:-
 Example 1
 
-
-
 Input:
-
 9.5
-
 1.25
-
 3
 
 Output: 
-
 Price without discount: Rs.13.25
-
 Price with discount: Rs.13.25
 
 Explanation:
 
-Rithish orders a pizza with a base price of Rs. 9.5, a topping cost of Rs. 1.25, and selects 3 toppings. The price is calculated as 9.5 + (1.25 * 3) = 13.25. The regular and discounted prices are both Rs. 13.25, as no discount has been applied.
-
-
+Rithish orders a pizza with a base price of Rs. 9.5, a topping cost of Rs. 1.25, and selects 3 toppings. 
+The price is calculated as 9.5 + (1.25 * 3) = 13.25. 
+The regular and discounted prices are both Rs. 13.25, as no discount has been applied.
 
 Example 2
 
-
-
 Input:
-
 11.0
-
 2.0
-
 7
 
 Output: 
 
 Price without discount: Rs.25.00
-
 Price with discount: Rs.22.50
 
 Explanation:
@@ -72,8 +58,6 @@ The first line of output prints the price without discount, rounded off to two d
 
 The second line prints the price with the discount, rounded off to two decimal places.
 
-
-
 Refer to the sample output for formatting specifications.
 
 Code constraints :
@@ -82,23 +66,7 @@ The base price and the cost per topping should be greater than zero.
 1 ≤ number of toppings ≤ 10
 */
 
-Sample test cases:-
 
-Input 1 :
-9.5
-1.25
-3
-Output 1 :
-Price without discount: Rs.13.25
-Price with discount: Rs.13.25
-
-Input 2 :
-11.0
-2.0
-7
-Output 2 :
-Price without discount: Rs.25.00
-Price with discount: Rs.22.50
 
 Solution
 
