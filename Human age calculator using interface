@@ -1,0 +1,75 @@
+/*Problem Statement
+
+Raj is curious about how old he is in the current year. 
+
+He has asked you to create a simple program that calculates a person's age based on their birth year. 
+You decide to implement this functionality using the AgeCalculator interface and the HumanAgeCalculator class.
+
+Note: The current year is 2024. Calculate the current age by using the formula: current year - birth year.
+
+Input format :
+The input consists of an integer representing the birth year.
+
+Output format :
+The output displays "You are X years old." where X is an integer representing the calculated age based on the entered birth year.
+
+Refer to the sample output for formatting specifications.
+
+Code constraints :
+1900 ≤ birth year ≤ 2022
+
+Sample test cases :
+Input 1 :
+1934
+Output 1 :
+You are 90 years old.
+Input 2 :
+2000
+Output 2 :
+You are 24 years old.
+Input 3 :
+1986
+Output 3 :
+You are 38 years old.
+
+*/
+
+Solution:-
+
+import java.util.*;
+
+interface AgeCalculator{
+    void calc();
+}
+
+class HumanAgeCalculator implements AgeCalculator{
+    
+    int birth_year;
+    
+    HumanAgeCalculator(int birth_year){
+        this.birth_year = birth_year;
+    }
+    
+    public void calc(){
+        int age = 2024-birth_year;
+        System.out.println("You are "+age+" years old.");
+    }
+    
+}
+
+
+class Main{
+    
+    public static void main(String[] args){
+        
+        Scanner input = new Scanner(System.in);
+        
+        int birth_year = input.nextInt();
+        
+        HumanAgeCalculator h1 = new HumanAgeCalculator(birth_year);
+        
+        h1.calc();
+        
+    }
+    
+}
