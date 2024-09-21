@@ -1,0 +1,124 @@
+/*Problem Statement
+
+Rock is developing a real-time multiplayer game where players can communicate with each other through an in-game messaging system. 
+The game features a messaging system with an abstract class Message and a subclass Email for sending in-game emails.
+
+Develop a program to help Rock that solicits user input, capturing information such as sender and recipient addresses, subject, and body of a message.
+Subsequently, the program presents the collected details back to the user.
+
+Input format :
+The first line of input consists of a string, representing the sender's email address.
+
+The second line consists of a string, representing the recipient's email address.
+
+The third line consists of a string, representing the subject of the mail.
+
+The fourth line consists of a string, representing the body of the mail.
+
+Output format :
+The output displays the information about the mail in the following format:
+
+"Email Format
+
+From: [sender]
+
+To: [recipient]
+
+Subject: [subject]
+
+Body: [body]
+
+Email sent!"
+
+
+
+Refer to the sample output for formatting specifications.
+
+Code constraints :
+The maximum length of the string is 1000.
+
+Sample test cases :
+Input 1 :
+JohnDoe
+JaneSmith
+Greetings
+Hello Jane, how are you?
+Output 1 :
+Email Format
+From: JohnDoe
+To: JaneSmith
+Subject: Greetings
+Body: Hello Jane, how are you?
+Email sent!
+Input 2 :
+Organizer
+Players
+Game Tomorrow
+Friendly reminder about our Game tomorrow at 2 PM!
+Output 2 :
+Email Format
+From: Organizer
+To: Players
+Subject: Game Tomorrow
+Body: Friendly reminder about our Game tomorrow at 2 PM!
+Email sent!
+*/
+
+Solution:-
+
+import java.util.*;
+
+abstract class Message{
+    abstract void display();
+}
+
+class Email extends Message{
+
+    String sender_email_id;
+    String recipient_email_id;
+    String subject;
+    String body;
+
+    Email(String sender_email_id,String recipient_email_id,String subject, String body){
+        this.sender_email_id = sender_email_id;
+        this.recipient_email_id = recipient_email_id;
+        this.subject = subject;
+        this.body = body;
+    }
+
+    @Override
+    void display() {
+        System.out.println("Email format");
+        System.out.println("From: "+sender_email_id);
+        System.out.println("To: "+recipient_email_id);
+        System.out.println("Subject: "+subject);
+        System.out.println("Body: "+body);
+        System.out.println("Email sent!!");
+    }
+}
+
+class Main{
+
+    public static void main(String[] args){
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter sender email: ");
+        String sender_email_id = input.nextLine();
+
+        System.out.println("Enter recipient email: ");
+        String recipient_email_id= input.nextLine();
+
+        System.out.println("Enter subject: ");
+        String subject= input.nextLine();
+
+        System.out.println("Enter body: ");
+        String body= input.nextLine();
+
+
+        Email e1 = new Email(sender_email_id,recipient_email_id,subject,body);
+
+        e1.display();
+
+    }
+}
