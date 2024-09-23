@@ -41,3 +41,69 @@ Not growing string
 
 Solution:-
 
+import java.util.Scanner;
+
+interface Growing {
+    boolean isGrowing();
+}
+
+class GrowingNumber implements Growing {
+    private int number;
+
+    public GrowingNumber(int number) {
+        this.number = number;
+    }
+
+    @Override
+    public boolean isGrowing() {
+        String numStr = Integer.toString(number);
+        for (int i = 1; i < numStr.length(); i++) {
+            if (numStr.charAt(i) <= numStr.charAt(i - 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+class GrowingString implements Growing {
+    private String str;
+
+    public GrowingString(String str) {
+        this.str = str;
+    }
+
+    @Override
+    public boolean isGrowing() {
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) <= str.charAt(i - 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        String str = scanner.next();
+
+        GrowingNumber growingNumber = new GrowingNumber(number);
+        GrowingString growingString = new GrowingString(str);
+
+        if (growingNumber.isGrowing()) {
+            System.out.println("Growing number");
+        } else {
+            System.out.println("Not growing number");
+        }
+
+        if (growingString.isGrowing()) {
+            System.out.println("Growing string");
+        } else {
+            System.out.println("Not growing string");
+        }
+    }
+}
+
