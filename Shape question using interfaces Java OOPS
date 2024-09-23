@@ -1,0 +1,123 @@
+Problem Statement
+
+
+A painter needs to determine the cost to paint different shapes based on their surface area. 
+
+
+Write a program that calculates the area of a sphere and the cost to paint it using three classes: Shape, Area, and Cost. The Shape class should set the shape type and radius, the Area class should extend Shape to calculate the area, and the Cost class should extend Area to calculate the total painting cost.
+
+
+Formula:
+
+    Area of sphere = 4 * pi * r2 , where pi = 3.14
+    Total painting cost = cost per square meter * area of sphere
+
+Input format :
+
+The input consists of a string representing the shape type, a double value representing the radius, and another double value representing the cost per square meter.
+Output format :
+
+If the shape type is 'Sphere', the output prints the area of the sphere and the total painting cost, in separate lines. Round off to two decimal places.
+
+For any other shape types, print "Invalid type".
+
+
+Refer to the sample output for formatting specifications.
+Code constraints :
+
+1.0 ≤ radius ≤ 50.0
+
+1.0 ≤ cost ≤ 10.0
+Sample test cases :
+Input 1 :
+
+Sphere
+3.4
+5.8
+
+Output 1 :
+
+Area of Sphere is: 145.19
+Cost to paint the shape is: 842.12
+
+Input 2 :
+
+Sphere
+50.0
+10.0
+
+Output 2 :
+
+Area of Sphere is: 31400.00
+Cost to paint the shape is: 314000.00
+
+Input 3 :
+
+Triangle
+3.4
+2.3
+
+Output 3 :
+
+Invalid type
+
+Input 4 :
+
+sphere
+34.6
+4.9
+
+Output 4 :
+
+Invalid type
+
+Solution:-
+
+import java.util.Scanner;
+
+class Shape {
+    protected String type;
+    protected double radius;
+
+    public void setDetails(String type, double radius) {
+        this.type = type;
+        this.radius = radius;
+    }
+}
+
+class Area extends Shape {
+    public double calculateArea() {
+        return 4 * 3.14 * radius * radius;
+    }
+}
+
+class Cost extends Area {
+    public double calculateTotalCost(double costPerSquareMeter) {
+        double area = calculateArea();
+        return area * costPerSquareMeter;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String type = scanner.nextLine();
+        double radius = scanner.nextDouble();
+        double costPerSquareMeter = scanner.nextDouble();
+
+        if (!type.equals("Sphere")) {
+            System.out.println("Invalid type");
+            return;
+        }
+
+        Cost shapeCost = new Cost();
+        shapeCost.setDetails(type, radius);
+
+        double area = shapeCost.calculateArea();
+        double totalCost = shapeCost.calculateTotalCost(costPerSquareMeter);
+
+        System.out.printf("Area of Sphere is: %.2f%n", area);
+        System.out.printf("Cost to paint the shape is: %.2f%n", totalCost);
+    }
+}
