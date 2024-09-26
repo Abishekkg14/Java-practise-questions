@@ -1,4 +1,6 @@
-/*Rubia wants to develop a program that calculates a person's age in days based on their age in years. Write a program that has two overloaded methods convertToDays() to handle integer and double value inputs and convert the ages to days to help Rubia. 
+/*Rubia wants to develop a program that calculates a person's age in days based on their age in years. 
+Write a program that has two overloaded methods convertToDays() to handle integer and double value inputs and
+convert the ages to days to help Rubia. 
 
 
 
