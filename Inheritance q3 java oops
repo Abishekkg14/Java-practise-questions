@@ -2,7 +2,8 @@
 
 
 
-The program should accept user input for age in years, perform the calculations by multiplying the integer age by 365 and multiplying the double value age by 365.25, and display both results as integers.
+The program should accept user input for age in years, perform the calculations by multiplying the integer age by 365 and
+multiplying the double value age by 365.25, and display both results as integers.
 
 Input format :
 The first line of input consists of an integer m, representing a person's age in years as a whole number.
