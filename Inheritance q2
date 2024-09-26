@@ -8,7 +8,8 @@ When he inputs an integer value, the program calculates the square root and disp
 Likewise, if he enters a double, he anticipates the program to compute the cube root and display the outcome. 
 
 
-Create a program that enables Hagrid to input a number and then see the result of the respective root calculation. Use method overloading with the name calculateRoot() for this and also sqrt() and cbrt() functions from the Java library.
+Create a program that enables Hagrid to input a number and then see the result of the respective root calculation. 
+Use method overloading with the name calculateRoot() for this and also sqrt() and cbrt() functions from the Java library.
 
 Input format :
 The input consists of either an integer n or a double value d, representing the numerical value entered by Hagrid.
